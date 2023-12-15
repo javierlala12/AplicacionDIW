@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <!-- Enlaces a bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <style type="text/css">
+            body {
+                margin-left: 10px;
+            }
+    
+            form, 
+            #resultadoBusqueda {
+                display: none;
+            }
+    
+            #formularios {
+                margin-top: 60px;
+            }
+        </style>
+        <title>Automecánica Estévez S.L. administracion</title>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Automecánica Estévez S.L. administracion</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Mantenimientos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="mnuAltaRegistroMantenimiento">Alta de Registro</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+    
+                            <li><a class="dropdown-item" href="#" id="mnuBuscarRegistroMantenimiento">Buscar un Registro</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Vehiculos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="mnuAltaVehiculo">Alta de vehiculos</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="mnuListadoMantenimientosPorVehiculo">Listado de mantenimientos por vehiculo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        
+        <div class="container" id="formularios">
+            <div class="row">
+                    <form class="form-horizontal" name="frmListadoMantenimientosPorVehiculo" id="frmListadoMantenimientosPorVehiculo">
+                        <fieldset>
+                            <!-- Form Name -->
+                            <legend>Listado de mantenimientos por vehiculo</legend>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label" for="lstTipo">vehiculo</label>
+                                <div class="col-xs-4">
+                                    <select  class="form-select" name="listadoMantenimientosPorVehiculo" id="listadoMantenimientosPorVehiculo">
+        
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label" for="btnAceptarListadoPorVehiculo"></label>
+                                <div class="col-xs-4">
+                                    <input type="button" id="btnAceptarListadoPorVehiculo" name="btnAceptarListadoPorVehiculo"
+                                        class="btn btn-primary" value="Aceptar" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                <form class="form-horizontal" name="frmAltaVehiculo" id="frmAltaVehiculo">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>Alta de Vehículo</legend>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtMarca">Marca</label>
+                            <div class="col-xs-4">
+                                <input id="txtMarca" name="txtMarca" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModelo">Modelo</label>
+                            <div class="col-xs-4">
+                                <input id="txtModelo" name="txtModelo" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtAnio">Año</label>
+                            <div class="col-xs-4">
+                                <input id="txtAnio" name="txtAnio" class="form-control input-md" type="number">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtMatricula">Matrícula</label>
+                            <div class="col-xs-4">
+                                <input id="txtMatricula" name="txtMatricula" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtPropietario">Propietario</label>
+                            <div class="col-xs-4">
+                                <input id="txtPropietario" name="txtPropietario" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtCombustible">Tipo de Combustible</label>
+                            <div class="col-xs-4">
+                                <input id="txtCombustible" name="txtCombustible" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Number input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtKilometros">Kilómetros</label>
+                            <div class="col-xs-4">
+                                <input id="txtKilometros" name="txtKilometros" class="form-control input-md" type="number">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtColor">Color</label>
+                            <div class="col-xs-4">
+                                <input id="txtColor" name="txtColor" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="btnAceptarAltaVehiculo"></label>
+                            <div class="col-xs-4">
+                                <input type="button" id="btnAceptarAltaVehiculo" name="btnAceptarAltaVehiculo" class="btn btn-primary" value="Aceptar" onclick="procesarAltaVehiculo()">
+                            </div>
+                        </div>
+                
+                    </fieldset>
+                </form>
+                <form class="form-horizontal" name="frmBuscarRegistroMantenimiento" id="frmBuscarRegistroMantenimiento">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>Buscar Registro de Mantenimiento</legend>
+                
+                        <!-- Number input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtIdRegistroMantenimiento">ID del Registro de Mantenimiento</label>
+                            <div class="col-xs-4">
+                                <input id="txtIdRegistroMantenimiento" name="txtIdRegistroMantenimiento" class="form-control input-md" type="number">
+                            </div>
+                        </div>
+                
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="btnBuscarRegistroMantenimiento"></label>
+                            <div class="col-xs-4">
+                                <input type="button" id="btnBuscarRegistroMantenimiento" name="btnBuscarRegistroMantenimiento" class="btn btn-primary" value="Buscar" onclick="procesarBuscarRegistroMantenimiento()">
+                            </div>
+                        </div>
+                
+                    </fieldset>
+                
+                    <!-- Resultado de la búsqueda -->
+                    <div id="resultadoBusquedaMantenimientos" style="display: none;"></div>
+                
+                </form>		
+                <form class="form-horizontal" name="frmModificarRegistroMantenimiento" id="frmModificarRegistroMantenimiento">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>Modificar registro de mantenimiento</legend>
+                        
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModIdRegistroMantenimiento">ID Registro Mantenimiento</label>
+                            <div class="col-xs-4">
+                                <input id="txtModIdRegistroMantenimiento" name="txtModIdRegistroMantenimiento" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                        
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModFecha">Fecha</label>
+                            <div class="col-xs-4">
+                                <input id="txtModFecha" name="txtModFecha" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModTipo">Tipo</label>
+                            <div class="col-xs-4">
+                                <input id="txtModTipo" name="txtModTipo" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModDescripcion">Descripción</label>
+                            <div class="col-xs-4">
+                                <input id="txtModDescripcion" name="txtModDescripcion" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModCosto">Costo</label>
+                            <div class="col-xs-4">
+                                <input id="txtModCosto" name="txtModCosto" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModVehiculoId">Vehículo ID</label>
+                            <div class="col-xs-4">
+                                <input id="txtModVehiculoId" name="txtModVehiculoId" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModTechnician">Technician</label>
+                            <div class="col-xs-4">
+                                <input id="txtModTechnician" name="txtModTechnician" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtModAssignedBox">Assigned Box</label>
+                            <div class="col-xs-4">
+                                <input id="txtModAssignedBox" name="txtModAssignedBox" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="btnAceptarModRegistroMantenimiento"></label>
+                            <div class="col-xs-4">
+                                <input type="button" id="btnAceptarModRegistroMantenimiento" name="btnAceptarModRegistroMantenimiento" class="btn btn-primary" value="Aceptar" onclick="procesarModificarRegistroMantenimiento()" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                
+    
+                <form class="form-horizontal" name="frmAltaRegistroMantenimiento" id="frmAltaRegistroMantenimiento">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>Alta de Registro de Mantenimiento</legend>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtFecha">Fecha</label>
+                            <div class="col-xs-4">
+                                <input id="txtFecha" name="txtFecha" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtTipo">Tipo de Mantenimiento</label>
+                            <div class="col-xs-4">
+                                <input id="txtTipo" name="txtTipo" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtDescripcion">Descripción</label>
+                            <div class="col-xs-4">
+                                <input id="txtDescripcion" name="txtDescripcion" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Number input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtCosto">Costo</label>
+                            <div class="col-xs-4">
+                                <input id="txtCosto" name="txtCosto" class="form-control input-md" type="number">
+                            </div>
+                        </div>
+                
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="lstAltaVehiculo">ID de Vehículo</label>
+                            <div class="col-xs-4">
+                                <input id="lstAltaVehiculo" name="lstAltaVehiculo" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtTechnician">Técnico</label>
+                            <div class="col-xs-4">
+                                <input id="txtTechnician" name="txtTechnician" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtAssignedBox">Caja asignada</label>
+                            <div class="col-xs-4">
+                                <input id="txtAssignedBox" name="txtAssignedBox" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="btnAceptarAltaRegistroMantenimiento"></label>
+                            <div class="col-xs-4">
+                                <input type="button" id="btnAceptarAltaRegistroMantenimiento" name="btnAceptarAltaRegistroMantenimiento" class="btn btn-primary" value="Aceptar" onclick="procesarAltaRegistroMantenimiento()">
+                            </div>
+                        </div>
+                
+                    </fieldset>
+                </form>
+                <form class="form-horizontal" name="frmListadoDebajo" id="frmListadoDebajo">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>Listado debajo del formulario</legend>
+    
+                        <!-- Contenido del formulario para el listado -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="txtListadoDebajo">Contenido</label>
+                            <div class="col-xs-4">
+                                <!-- Ajusta el contenido según tu necesidad -->
+                                <input id="txtListadoDebajo" name="txtListadoDebajo" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+    
+                        <!-- Botón para activar el listado -->
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label" for="btnMostrarListadoDebajo"></label>
+                            <div class="col-xs-4">
+                                <input type="button" id="btnMostrarListadoDebajo" name="btnMostrarListadoDebajo" class="btn btn-primary" value="Mostrar Listado" onclick="mostrarListadoDebajo()">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <form id="frmModificarRegistroMantenimiento" style="display: none;">
+                    <label for="txtModIdRegistroMantenimiento">ID de Registro:</label>
+                    <input type="text" id="txtModIdRegistroMantenimiento" name="txtModIdRegistroMantenimiento" required>
+                  
+                    <label for="txtModFecha">Fecha:</label>
+                    <input type="text" id="txtModFecha" name="txtModFecha" required>
+                  
+                    <label for="txtModTipo">Tipo:</label>
+                    <input type="text" id="txtModTipo" name="txtModTipo" required>
+                  
+                    <label for="txtModDescripcion">Descripción:</label>
+                    <input type="text" id="txtModDescripcion" name="txtModDescripcion" required>
+                  
+                    <label for="txtModCosto">Costo:</label>
+                    <input type="text" id="txtModCosto" name="txtModCosto" required>
+                  
+                    <label for="txtModVehiculoId">ID de Vehículo:</label>
+                    <input type="text" id="txtModVehiculoId" name="txtModVehiculoId" required>
+                  
+                    <label for="txtModTechnician">Técnico:</label>
+                    <input type="text" id="txtModTechnician" name="txtModTechnician" required>
+                  
+                    <label for="txtModAssignedBox">Caja asignada:</label>
+                    <input type="text" id="txtModAssignedBox" name="txtModAssignedBox" required>
+                  
+                    <select id="lstModRegistro" name="lstModRegistro"></select>
+                  
+                    <button type="button" class="btn btn-primary" onclick="procesarModificarRegistroMantenimiento()">Aceptar</button>
+                  </form>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container" id="resultadoBusqueda"></div>
+        <div class="container" id="listados"></div>
+        
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src="js/objetos.js"></script>
+        <script type="text/javascript" src="js/codigo.js"></script>
+        <script>
+            function mostrarListadoDebajo() {
+                // Lógica para mostrar el listado debajo del formulario
+                document.getElementById("listados").innerHTML = "Contenido del listado debajo del formulario.";
+            }
+        </script>
+    </body>
+    
+    </html>
